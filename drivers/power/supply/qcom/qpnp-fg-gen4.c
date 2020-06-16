@@ -12,22 +12,22 @@
 
 #define pr_fmt(fmt)	"FG: %s: " fmt, __func__
 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+#include <linux/alarmtimer.h>
+#include <linux/irq.h>
+#include <linux/ktime.h>
+#include <linux/nvmem-consumer.h>
+#include <linux/of.h>
+#include <linux/of_platform.h>
+#include <linux/of_batterydata.h>
+#include <linux/platform_device.h>
+#include <linux/qpnp/qpnp-pbs.h>
+#include <linux/qpnp/qpnp-revid.h>
+#include <linux/thermal.h>
 #include "fg-core.h"
 #include "fg-reg.h"
 #include "fg-alg.h"
 /* @bsp, 2019/04/17 Battery & Charging porting */
-#include 
+#include <linux/power/oem_external_fg.h>
 
 #define FG_GEN4_DEV_NAME	"qcom,fg-gen4"
 #define TTF_AWAKE_VOTER		"fg_ttf_awake"
