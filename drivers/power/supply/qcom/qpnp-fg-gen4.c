@@ -6384,33 +6384,7 @@ static int fg_gen4_resume(struct device *dev)
 				msecs_to_jiffies(fg_sram_dump_period_ms));
 	return 0;
 }
-static const struct dev_pm_ops fg_gen4_pm_ops = {
-	.suspend	= fg_gen4_suspend,
-	.resume		= fg_gen4_resume,
-};
 
-static const struct of_device_id fg_gen4_match_table[] = {
-	{.compatible = FG_GEN4_DEV_NAME},
-	{},
-};
-
-static struct platform_driver fg_gen4_driver = {
-	.driver = {
-		.name = FG_GEN4_DEV_NAME,
-		.owner = THIS_MODULE,
-		.of_match_table = fg_gen4_match_table,
-		.pm		= &fg_gen4_pm_ops,
-	},
-	.probe		= fg_gen4_probe,
-	.remove		= fg_gen4_remove,
-	.shutdown	= fg_gen4_shutdown,
-};
-
-module_platform_driver(fg_gen4_driver);
-
-MODULE_DESCRIPTION("QPNP Fuel gauge GEN4 driver");
-MODULE_LICENSE("GPL v2");
-MODULE_ALIAS("platform:" FG_GEN4_DEV_NAME);
 static const struct dev_pm_ops fg_gen4_pm_ops = {
 	.suspend	= fg_gen4_suspend,
 	.resume		= fg_gen4_resume,
